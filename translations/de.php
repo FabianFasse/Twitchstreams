@@ -18,7 +18,6 @@ return [
     'noStreamer' => 'Keine Streamer vorhanden',
     'updateStreams' => 'Update Streams',
     'updateSuccess' => 'Update erfolgreich',
-    'missingUser' => 'User muss ausgefüllt werden',
     'requestEveryPage' => 'Streams bei jedem Seitenaufruf aktualisieren?',
     'streamPopUp' => 'Stream PopUp',
     'chatPopUp' => 'Chat PopUp',

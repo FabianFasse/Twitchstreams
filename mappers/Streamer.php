@@ -23,15 +23,15 @@ class Streamer extends \Ilch\Mapper
         $streamer = [];
         foreach ($resultArray as $streamerRow) {
             $model = new StreamerModel();
-            $model->setId($streamerRow['id']);
-            $model->setUser($streamerRow['user']);
-            $model->setTitle($streamerRow['title']);
-            $model->setOnline($streamerRow['online']);
-            $model->setGame($streamerRow['game']);
-            $model->setViewers($streamerRow['viewers']);
-            $model->setPreviewMedium($streamerRow['previewMedium']);
-            $model->setLink($streamerRow['link']);
-            $model->setCreatedAt(date("d.m.y h:i", strtotime($streamerRow['createdAt'])));
+            $model->setId($streamerRow['id'])
+                ->setUser($streamerRow['user'])
+                ->setTitle($streamerRow['title'])
+                ->setOnline($streamerRow['online'])
+                ->setGame($streamerRow['game'])
+                ->setViewers($streamerRow['viewers'])
+                ->setPreviewMedium($streamerRow['previewMedium'])
+                ->setLink($streamerRow['link'])
+                ->setCreatedAt(date("d.m.y h:i", strtotime($streamerRow['createdAt'])));
             $streamer[] = $model;
         }
 
@@ -99,22 +99,22 @@ class Streamer extends \Ilch\Mapper
         $onlineStreamer = $api->getOnlineStreamer();
 
         foreach ($streamerInDatabase as $streamer) {
-            $streamer->setTitle("");
-            $streamer->setOnline(0);
-            $streamer->setGame("");
-            $streamer->setViewers(0);
-            $streamer->setPreviewMedium("");
-            $streamer->setLink("");
+            $streamer->setTitle("")
+                ->setOnline(0)
+                ->setGame("")
+                ->setViewers(0)
+                ->setPreviewMedium("")
+                ->setLink("");
 
             foreach ($onlineStreamer as $obj) {
                 if ($streamer->getId() == $obj->getId()) {
-                    $streamer->setTitle($obj->getTitle());
-                    $streamer->setOnline(1);
-                    $streamer->setGame($obj->getGame());
-                    $streamer->setViewers($obj->getViewers());
-                    $streamer->setPreviewMedium($obj->getPreviewMedium());
-                    $streamer->setLink($obj->getLink());
-                    $streamer->setCreatedAt($obj->getCreatedAt());
+                    $streamer->setTitle($obj->getTitle())
+                        ->setOnline(1)
+                        ->setGame($obj->getGame())
+                        ->setViewers($obj->getViewers())
+                        ->setPreviewMedium($obj->getPreviewMedium())
+                        ->setLink($obj->getLink())
+                        ->setCreatedAt($obj->getCreatedAt());
                     break;
                 }
             }

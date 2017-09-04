@@ -16,6 +16,8 @@ class Streamer extends \Ilch\Model {
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
     
     public function getId()
@@ -26,6 +28,8 @@ class Streamer extends \Ilch\Model {
     public function setUser($user)
     {
         $this->user = $user;
+
+        return $this;
     }
     
     public function getUser()
@@ -36,6 +40,8 @@ class Streamer extends \Ilch\Model {
     public function setTitle($title)
     {
         $this->title = $title;
+
+        return $this;
     }
     
     public function getTitle()
@@ -46,6 +52,8 @@ class Streamer extends \Ilch\Model {
     public function setOnline($online)
     {
         $this->online = $online;
+
+        return $this;
     }
     
     public function getOnline()
@@ -56,6 +64,8 @@ class Streamer extends \Ilch\Model {
     public function setGame($game)
     {
         $this->game = $game;
+
+        return $this;
     }
     
     public function getGame()
@@ -66,6 +76,8 @@ class Streamer extends \Ilch\Model {
     public function setViewers($viewers)
     {
         $this->viewers = $viewers;
+
+        return $this;
     }
     
     public function getViewers()
@@ -76,6 +88,8 @@ class Streamer extends \Ilch\Model {
     public function setPreviewMedium($preview)
     {
         $this->previewMedium = $preview;
+
+        return $this;
     }
     
     public function getPreviewMedium()
@@ -83,8 +97,11 @@ class Streamer extends \Ilch\Model {
         return $this->previewMedium;
     }
     
-    public function setLink($link) {
+    public function setLink($link)
+    {
         $this->link = $link;
+
+        return $this;
     }
     
     public function getLink()
@@ -95,6 +112,8 @@ class Streamer extends \Ilch\Model {
     public function setCreatedAt($createdAd)
     {
         $this->createdAt = $createdAd;
+
+        return $this;
     }
     
     public function getCreatedAt()

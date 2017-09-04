@@ -18,7 +18,6 @@ return [
     'noStreamer' => 'No Streamer available',
     'updateStreams' => 'Update Streams',
     'updateSuccess' => 'Update successful',
-    'missingUser' => 'User was not filled',
     'requestEveryPage' => 'Update Streams on each page view?',
     'streamPopUp' => 'Stream PopUp',
     'chatPopUp' => 'Chat PopUp',

@@ -11,7 +11,7 @@ class Index extends \Ilch\Controller\Frontend
         $mapper = new StreamerMapper();
 
         $this->getLayout()->getHmenu()
-                ->add($this->getTranslator()->trans('menuStreamer'), ['action' => 'index']);
+            ->add($this->getTranslator()->trans('menuStreamer'), ['action' => 'index']);
 
         if ($this->getConfig()->get('twitchstreams_requestEveryPageCall') == 1) {
             $this->updateAction();
@@ -27,8 +27,8 @@ class Index extends \Ilch\Controller\Frontend
         $streamer = $mapper->getStreamer(['id' => $this->getRequest()->getParam('id')]);
 
         $this->getLayout()->getHmenu()
-                ->add($this->getTranslator()->trans('menuStreamer'), ['action' => 'index'])
-                ->add($streamer[0]->getUser(), ['id' => $this->getRequest()->getParam('id')]);
+            ->add($this->getTranslator()->trans('menuStreamer'), ['action' => 'index'])
+            ->add($streamer[0]->getUser(), ['id' => $this->getRequest()->getParam('id')]);
 
         if ($this->getConfig()->get('twitchstreams_requestEveryPageCall') == 1) {
             $this->updateAction();

@@ -10,7 +10,7 @@ Jede Application hat dabei eine eindeutige ID. Diese ID muss dann im Twitchstrea
 Settings eingetragen werden.
 
 # Streamer-Daten updaten
-Die Streamer lassen sich per Cronjob aktualisieren oder per Aufruf der Frontend-Seite. Dies ist den den Settings einstellbar.
+Die Streamer lassen sich per Cronjob aktualisieren oder per Aufruf der Frontend-Seite. Dies ist in den Settings einstellbar.
 Um die Streamer per Cronjob zu aktualisieren, muss der Job folgenden Link aufrufen: http://DOMAIN/index.php/twitchstreams/index/update
 
 # Haftungsausschluss

@@ -32,19 +32,20 @@ class Streamer
         $data = curl_exec($ch);
         curl_close($ch);
         $allres = json_decode($data);
-        
+
+
         foreach ($allres->{'streams'} as $stream) {
             $assoc = $mapper->readByUser($stream->{'channel'}->{'display_name'});
             $model = new StreamerModel();
-            $model->setId($assoc['id']);
-            $model->setUser($assoc['user']);
-            $model->setTitle($stream->{'channel'}->{'status'});
-            $model->setOnline($assoc['online']);
-            $model->setGame($stream->{'game'});
-            $model->setViewers($stream->{'viewers'});
-            $model->setPreviewMedium($stream->{'preview'}->{'medium'});
-            $model->setLink($stream->{'channel'}->{'url'});
-            $model->setCreatedAt($stream->{'created_at'});
+            $model->setId($assoc['id'])
+                ->setUser($assoc['user'])
+                ->setTitle($stream->{'channel'}->{'status'})
+                ->setOnline($assoc['online'])
+                ->setGame($stream->{'game'})
+                ->setViewers($stream->{'viewers'})
+                ->setPreviewMedium($stream->{'preview'}->{'medium'})
+                ->setLink($stream->{'channel'}->{'url'})
+                ->setCreatedAt($stream->{'created_at'});
             $this->onlineStreamer[] = $model;
         }
 
