@@ -15,7 +15,7 @@ return [
     'online' => 'Online',
     'onlineSince' => 'Online seit',
     'username' => 'Benutzername',
-    'noStreamer' => 'Keine Streamer vorhanden',
+    'noStreamer' => 'Keine Streamer online',
     'updateStreams' => 'Update Streams',
     'updateSuccess' => 'Update erfolgreich',
     'requestEveryPage' => 'Streams bei jedem Seitenaufruf aktualisieren?',

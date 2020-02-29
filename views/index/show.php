@@ -1,4 +1,7 @@
-<?php $streamer = $this->get('streamer')[0]; ?>
+<?php
+$streamer = $this->get('streamer')[0];
+$date = new \Ilch\Date($streamer->getCreatedAt());
+?>
 
 <link href="<?=$this->getModuleUrl('static/css/streams.css') ?>" rel="stylesheet">
 
@@ -17,7 +20,7 @@
             <li class="list-group-item">
               <?=$this->getTrans('streamer') ?>
               <span class="badge">
-                <a href="<?=$streamer->getLink() ?>" target="_blank">
+                <a href="https://www.twitch.tv/<?=$streamer->getUser() ?>" target="_blank">
                   <?=$streamer->getUser() ?>
                 </a>
               </span>
@@ -32,7 +35,7 @@
             </li>
             <li class="list-group-item">
               <?=$this->getTrans('onlineSince') ?>
-              <span class="badge"><?=$streamer->getCreatedAt() ?></span>
+              <span class="badge"><?=$date->format("d.m.Y H:i") ?></span>
             </li>
           </ul>
         </div>
@@ -44,7 +47,7 @@
                     scrolling="no"
                     allowfullscreen="true"
                     id="stream-embed"
-                    src="http://player.twitch.tv/?channel=<?=$streamer->getUser() ?>&autoplay=false"
+                    src="https://player.twitch.tv/?channel=<?=$streamer->getUser() ?>&muted=true"
                     height="400px"
                     width="100%">
             </iframe>
@@ -52,7 +55,8 @@
           <div id="chat-box" style="display: none;">
             <iframe frameborder="0"
                     scrolling="no"
-                    src="http://www.twitch.tv/<?=$streamer->getUser() ?>/chat"
+                    id="chat-embed"
+                    src="https://www.twitch.tv/embed/<?=$streamer->getUser() ?>/chat"
                     height="400px"
                     width="100%">
             </iframe>
@@ -61,10 +65,10 @@
       </div>
       <div class="panel-footer clearfix">
         <div class="pull-left">
-          <button id="stream-popup" class="btn-default btn" href="javascript: void(0)" onclick="window.open('http://player.twitch.tv/?channel=<?=$streamer->getUser() ?>', '', 'width=800, height=450');">
+          <button id="stream-popup" class="btn-default btn" href="javascript: void(0)" onclick="window.open('https://player.twitch.tv/?channel=<?=$streamer->getUser() ?>', '', 'width=800, height=450');">
             <?=$this->getTrans('streamPopUp') ?>
           </button>
-          <button id="chat-popup" class="btn-default btn" href="javascript: void(0)" onclick="window.open('http://www.twitch.tv/<?=$streamer->getUser() ?>/chat', '', 'width=800, height=450');">
+          <button id="chat-popup" class="btn-default btn" href="javascript: void(0)" onclick="window.open('https://www.twitch.tv/embed/<?=$streamer->getUser() ?>/chat', '', 'width=800, height=450');">
             <?=$this->getTrans('chatPopUp') ?>
           </button>
         </div>
@@ -72,9 +76,9 @@
           <button id="stream" class="btn-primary btn">
             <?=$this->getTrans('showStream') ?>
           </button>
-          <button id="chat" class="btn-primary btn">
-            <?=$this->getTrans('showChat') ?>
-          </button>
+            <button id="chat" class="btn-primary btn">
+                <?=$this->getTrans('showChat') ?>
+            </button>
         </div>
       </div>
     </div>
@@ -95,7 +99,7 @@ $(document).ready(function() {
     var link = $(this);
     $('#stream-box').slideToggle('slow', function() {
       if ($(this).is(":visible")) {
-        $('#stream-embed').prop('src', 'http://player.twitch.tv/?channel=<?=$streamer->getUser() ?>');
+        $('#stream-embed').prop('src', 'https://player.twitch.tv/?channel=<?=$streamer->getUser() ?>');
         link.removeClass('btn-primary').addClass('btn-danger');
         link.text('<?=$this->getTrans('hideStream') ?>');
       } else {
@@ -110,6 +114,7 @@ $(document).ready(function() {
     var link = $(this);
     $('#chat-box').slideToggle('slow', function() {
       if ($(this).is(":visible")) {
+        $('#chat-embed').prop('src', 'https://twitch.tv/embed/<?=$streamer->getUser() ?>/chat');
         link.removeClass('btn-primary').addClass('btn-danger');
         link.text('<?=$this->getTrans('hideChat') ?>');
       } else {

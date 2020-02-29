@@ -10,7 +10,6 @@ class Streamer extends \Ilch\Model {
     protected $game;
     protected $viewers;
     protected $previewMedium;
-    protected $link;
     protected $createdAt;
         
     public function setId($id)
@@ -95,18 +94,6 @@ class Streamer extends \Ilch\Model {
     public function getPreviewMedium()
     {
         return $this->previewMedium;
-    }
-    
-    public function setLink($link)
-    {
-        $this->link = $link;
-
-        return $this;
-    }
-    
-    public function getLink()
-    {
-        return $this->link;
     }
     
     public function setCreatedAt($createdAd)

@@ -5,6 +5,7 @@
 <?php if (!empty($streamer)): ?>
   <?php for ($i = 0; $i < sizeof($streamer); $i++): ?>
     <?php if (isset($streamer[$i])): ?>
+        <?php $date = new \Ilch\Date($streamer[$i]->getCreatedAt()); ?>
       <div id="streamer">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -39,7 +40,7 @@
                   </li>
                   <li class="list-group-item">
                     <?=$this->getTrans('onlineSince') ?>
-                    <span class="badge"><?=$streamer[$i]->getCreatedAt() ?></span>
+                    <span class="badge"><?=$date->format("d.m.Y H:i") ?></span>
                   </li>
                 </ul>
               </div>
